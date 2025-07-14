@@ -34,6 +34,10 @@ s3 = s3fs.S3FileSystem(
     secret=S3_SECRET
 )
 
+print("🔑 S3_KEY:", S3_KEY)
+print("🔑 S3_SECRET:", S3_SECRET)
+print("🔑 S3_BUCKET:", S3_BUCKET)
+
 BASE_PATH = f's3://{S3_BUCKET}'
 DATA_PATH = f"{BASE_PATH}/Data"
 DF_PATH = f"{BASE_PATH}/doc_df.csv"

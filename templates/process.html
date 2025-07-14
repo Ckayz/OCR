@@ -4,10 +4,10 @@
   <h2>🔍 OCR Processor</h2>
 
   {% if to_process.empty %}
-    <p>✅ All pages already processed!</p>
-    <p><a href="{{ url_for('search') }}">Go to Search</a></p>
+    <p>✅ All pages are already processed! Nothing left to OCR.</p>
+    <p><a href="{{ url_for('search') }}">Go to Search ➜</a></p>
   {% else %}
-    <p>{{ to_process|length }} pages need OCR processing.</p>
+    <p>{{ to_process | length }} pages need OCR processing.</p>
     <form method="post">
       <button type="submit">Run OCR on Pending Pages</button>
     </form>
