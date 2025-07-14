@@ -1,0 +1,8 @@
+Flask
+python-dotenv
+s3fs
+PyPDF2
+pandas
+doctr
+torch
+thefuzz

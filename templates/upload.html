@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>📄 Upload PDF</h2>
+  <form method="post" enctype="multipart/form-data">
+    <p><input type="file" name="pdf" required></p>
+    <p>File type: <input type="text" name="file_type" placeholder="e.g., Shipping"></p>
+    <p>Notes:</p>
+    <p><textarea name="notes" rows="4" placeholder="Optional notes"></textarea></p>
+    <p><button type="submit">Upload</button></p>
+  </form>
+{% endblock %}

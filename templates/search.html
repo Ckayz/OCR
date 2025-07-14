@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>🔎 Search OCR Data</h2>
+
+  <form method="post">
+    <p>Search term:
+      <input type="text" name="search_term" required placeholder="Enter word or phrase">
+    </p>
+    <p><button type="submit">Search</button></p>
+  </form>
+
+  {% if results %}
+    <h3>Top Results:</h3>
+    <ul>
+      {% for r in results %}
+        <li>
+          <b>{{ r.file_name }}</b> ({{ r.file_type }})<br>
+          Notes: {{ r.notes }}<br>
+          Matches: {{ r.best_matches }}
+        </li>
+      {% endfor %}
+    </ul>
+
+    <h3>View or Download PDF</h3>
+    <form method="post">
+      <p>File name:
+        <input type="text" name="filename" placeholder="Exact file name e.g. mydoc_0.pdf" required>
+      </p>
+      <p><button type="submit">Load PDF</button></p>
+    </form>
+  {% endif %}
+
+  {% if temp_local_name %}
+    <h3>Preview PDF:</h3>
+    <embed src="{{ url_for('preview', filename=temp_local_name) }}" width="100%" height="600px" type="application/pdf">
+    <p>
+      <a href="{{ url_for('preview', filename=temp_local_name) }}" download>⬇️ Download PDF</a>
+    </p>
+  {% elif selected_file and not temp_local_name %}
+    <p>❌ File not found in S3.</p>
+  {% endif %}
+{% endblock %}
