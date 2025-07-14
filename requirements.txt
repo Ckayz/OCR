@@ -1,8 +1,10 @@
 Flask
 python-dotenv
-s3fs
-PyPDF2
 pandas
-doctr
+PyPDF2
+s3fs
+python-doctr
 torch
 thefuzz
+numpy
+gunicorn
